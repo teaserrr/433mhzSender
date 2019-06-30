@@ -1,9 +1,10 @@
-#include <RCSwitch.h>
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
 #include <DNSServer.h>
 #include <ESP8266WebServer.h>
 #include <WiFiManager.h>
+
+#include "PulseSender.h"
 
 #define OUT_PIN 4
 #define PULSE_LENGTH 340 // µs
@@ -21,7 +22,7 @@ char* _codes[][2] = {
   {"toggle-ambient-lights", "1011001011001011001011001011001011011"}
 };
 
-RCSwitch _433Sender = RCSwitch();
+PulseSender _433Sender = PulseSender();
 
 ESP8266WebServer server(80);
 
